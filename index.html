@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            text-align: left;
+        }
+        fieldset{
+            width: 400px;
+            
+        }
+    </style>
+</head>
+<body>
+<h1>Meu Formulário</h1>
+<form action="cadastro.php" method="post" autocomplete="on"> <!--desligar aba de sugestao-->
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+        <p><label for="nome">Nome:</label><input type="text" name="nome" id="nome" required minlength="5" maxlength="20" size="10" placeholder="Digite seu nome"></p>
+        <p><label for="sobrenome">Sobrenome:</label><input type="text" name="sobrenome" id="sobrenome" required></p>
+        <p><label for="">Média:</label><input type="number" min="0" max="10" step="0.1" value="5" required></p>
+        <p><label for="">Período Letivo:</label> <input type="month" value="2023-04"></p>
+        <p><label for="">Dia da Prova:</label><input type="date" value="2023-04-19"></p>
+        <p><label for="">Horário da Prova:</label><input type="time"></p>
+        <p><label for="">Email:</label><input type="email"> </p>
+        <p><label for="">Telefone:</label><input type="tel" pattern="^\(\d{2}\)\d{4,5}-\d{4}$"></p> <!--mais simbolos em RegEx-->
+        <p><label for=""> Esportes Favoritos:</label>
+            <input type="checkbox" name="basq" id="basq"><label for="basq">Basquete</label>
+            <input type="checkbox" name="fute" id="fut" checked><label for="fut">Futebol</label>
+            <input type="checkbox" name="tens" id="ten"><label for="ten">Tênis</label>
+        </p>
+   <p><label for="sexo">Sexo:</label><input type="radio" name="sexo" id="fem" checked><label for="fem">Feminino</label> <!--mesmo name para desmarcar radio box-->
+   <input type="radio" id="masc" name="sexo"><label for="masc">Masculino</label></p>
+   
+   <p><label for="inum">Nível de Satisfação:</label> Min<input type="range" id="inum" name="num" min="0" max="10" value="5" oninput="ival.innerHTML=Number(inum.value)">Máx
+<output id="ival">5</output>
+</p>
+   
+   <p><label for="cor">Cor:</label><input type="color"></p>
+   <p><label for="">Foto:</label><input type="file"></p>
+   <p><label for="">Estado:</label>
+    <select>
+    
+    <option selected>-----Escolha-----</option>
+    <optgroup label="Região Centro-oeste">
+    <option>Brasília</option>
+    <option>Goiás</option>
+    <option>Minas Gerais</option>
+    </optgroup>
+
+    <optgroup label="Região Sudeste">
+    <option>São Paulo</option>
+    <option>Rio de Janeiro</option>
+    </optgroup>
+
+    </select>
+</p>
+   
+<p><label for="profissao">Profissão:</label>
+    <input type="text" id="profissao" list="lista">
+
+    <datalist id="lista">
+    <option>Administrador</option>
+    <option>Desenvolvedor</option>
+    <option>Professor</option>
+    <option>Advogado</option>
+</datalist>
+</p>
+   <p><label for="msg">Mensagem:</label><br>
+   <textarea name="" id="msg" cols="30" rows="10" placeholder="Digite sua Mensagem aqui"></textarea>
+</p>
+
+
+    <p><label for="in1">Digite o Primeiro número:</label><input type="number" name="n1" id="in1" required oninput="isoma.innerHTML = Number(in1.value) + Number(in2.value)"></p>
+    
+    <p><label for="in2">Digite o Segundo número:</label><input type="number" id="in2" required oninput="isoma.innerHTML = Number(in1.value) + Number(in2.value)"></p>
+
+<p>
+    <label for="isoma">Soma:</label>
+    <output name="soma" id="isoma"></output>
+</p>
+<input type="submit"> <input type="reset" value="Limpar">
+    </fieldset>
+</form>
+</body>
+</html>
